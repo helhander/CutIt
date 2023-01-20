@@ -1,12 +1,9 @@
-
-
 from flask import flash, redirect, render_template
 
 from . import app, db
-
-from .models import URLMap
 from .forms import URLMapForm
-from .utils import get_unique_short_id, get_service_url
+from .models import URLMap
+from .utils import get_service_url, get_unique_short_id
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -17,13 +14,10 @@ def add_url_map_view():
         if URLMap.query.filter_by(short=custom_id).first():
             flash(f'Имя {custom_id} уже занято!')
             return render_template('add_url_map.html', form=form)
-
         if not custom_id:
             custom_id = get_unique_short_id()
-        url_map = URLMap(
-            original=form.original_link.data,
-            short=custom_id
-        )
+
+        url_map = URLMap(original=form.original_link.data, short=custom_id)
         db.session.add(url_map)
         db.session.commit()
         flash('Ваша новая ссылка готова:')

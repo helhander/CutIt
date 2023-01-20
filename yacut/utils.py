@@ -1,7 +1,9 @@
 import random
-import string
-from flask import request
 import re
+import string
+
+from flask import request
+
 LINK_ID_DEFAULT_SYMBOLS = string.ascii_letters + string.digits
 
 

@@ -14,7 +14,7 @@ class URLMap(db.Model):
             id=self.id,
             original=self.original,
             short=self.short,
-            timestamp=self.timestamp
+            timestamp=self.timestamp,
         )
 
     def from_dict(self, data):
