@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from flask import jsonify, request
 
 from . import app, db
@@ -5,13 +7,15 @@ from .error_handlers import InvalidAPIUsage
 from .models import URLMap
 from .utils import get_service_url, get_unique_short_id, validate_id
 
+MAX_CUSTOM_ID_LENGTH = 16
+
 
 @app.route('/api/id/<string:short>/', methods=['GET'])
 def get_opinion(short):
     url_map = URLMap.query.filter_by(short=short).first()
     if url_map is None:
-        raise InvalidAPIUsage('Указанный id не найден', 404)
-    return jsonify({'url': url_map.original}), 200
+        raise InvalidAPIUsage('Указанный id не найден', HTTPStatus.NOT_FOUND)
+    return jsonify({'url': url_map.original}), HTTPStatus.OK
 
 
 @app.route('/api/id/', methods=['POST'])
@@ -23,7 +27,7 @@ def add_url_map():
         raise InvalidAPIUsage('"url" является обязательным полем!')
     custon_id_filled = 'custom_id' in data and data['custom_id']
     if custon_id_filled:
-        if len(data['custom_id']) > 16:
+        if len(data['custom_id']) > MAX_CUSTOM_ID_LENGTH:
             raise InvalidAPIUsage(
                 'Указано недопустимое имя для короткой ссылки'
             )
@@ -51,5 +55,5 @@ def add_url_map():
                 'short_link': get_service_url(url_map.short),
             }
         ),
-        201,
+        HTTPStatus.CREATED,
     )
