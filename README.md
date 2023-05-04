@@ -1,38 +1,40 @@
-# Проект YaCut
-## Описание
-На большинстве сайтов адреса страниц довольно длинные, например, как у той страницы, на которой вы сейчас находитесь. Делиться такими длинными ссылками не всегда удобно, а иногда и вовсе невозможно. 
-Удобнее использовать короткие ссылки. Например, ссылки http://yacut.ru/lesson и http://yacut.ru/12e07d воспринимаются лучше, чем https://practicum.yandex.ru/trainer/backend-developer/lesson/12e07d96-31f3-449f-abcf-e468b6a39061/. 
-Проект YaCut — это сервис укорачивания ссылок. Его назначение — ассоциировать длинную пользовательскую ссылку с короткой, которую предлагает сам пользователь или предоставляет сервис.
+# CutIt
+## About
+CutIt - a useful service to make links shorter.
 
-## Как запустить проект
-Клонировать репозиторий и перейти в него в командной строке:
+It is more convenient to use short links. For example, links http://cutit.com/lesson and http://cutit.com/12e07d perceived better than the large one https://www.google.com/url?sa=i&url=%3A%2F%2Fwww.theguardian.com%2Flifeandstyle&source=images.
+The CutIt is a link shortening service. Its purpose is to associate a long user link with a short one, which is offered by the user himself or provided by the service.
+
+The API can be viewed in openapi.yml
+## How to launch a project
+Clone the repository and go to it on the command line:
 ```
 git clone 
 ```
 
 ```
-cd yacut
+cd cutit
 ```
 
-Cоздать и активировать виртуальное окружение:
+Create and activate a virtual environment:
 
 ```
 python3 -m venv venv
 ```
 
-* Если у вас Linux/macOS
+* Linux/macOS
 
     ```
     source venv/bin/activate
     ```
 
-* Если у вас windows
+* Windows
 
     ```
     source venv/scripts/activate
     ```
 
-Установить зависимости из файла requirements.txt:
+Install dependencies:
 
 ```
 python3 -m pip install --upgrade pip
@@ -42,11 +44,9 @@ python3 -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Запустить проект:
+Launch the project:
 
 ```
+export FLASK_APP=cutit
 flask run
 ```
-
-## Автор
-Трофимов Никита
