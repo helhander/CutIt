@@ -1,22 +1,21 @@
 # CutIt
-## About
-CutIt - a useful service to make links shorter.
+## Описание
+CutIt - это сервис укорачивания ссылок. Его назначение — ассоциировать длинную пользовательскую ссылку с короткой, которую предлагает сам пользователь или предоставляет сервис.
 
-It is more convenient to use short links. For example, links http://cutit.com/lesson and http://cutit.com/12e07d perceived better than the large one https://www.google.com/url?sa=i&url=%3A%2F%2Fwww.theguardian.com%2Flifeandstyle&source=images.
-The CutIt is a link shortening service. Its purpose is to associate a long user link with a short one, which is offered by the user himself or provided by the service.
+Удобнее использовать короткие ссылки. Например, ссылки http://yacut.ru/lesson и http://yacut.ru/12e07d воспринимаются лучше, чем https://www.google.com/url?sa=i&url=%3A%2F%2Fwww.theguardian.com%2Flifeandstyle&source=images
 
-The API can be viewed in openapi.yml
-## How to launch a project
-Clone the repository and go to it on the command line:
+Описание API можно посмотреть в openapi.yml
+## Как запустить проект
+Клонировать репозиторий и перейти в него в командной строке:
 ```
-git clone 
+git clone git@github.com:helhander/cutit.git
 ```
 
 ```
 cd cutit
 ```
 
-Create and activate a virtual environment:
+Cоздать и активировать виртуальное окружение:
 
 ```
 python3 -m venv venv
@@ -34,7 +33,7 @@ python3 -m venv venv
     source venv/scripts/activate
     ```
 
-Install dependencies:
+Установить зависимости из файла requirements.txt:
 
 ```
 python3 -m pip install --upgrade pip
@@ -44,7 +43,7 @@ python3 -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Launch the project:
+Запустить проект:
 
 ```
 export FLASK_APP=cutit
